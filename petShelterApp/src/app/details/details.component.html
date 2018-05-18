@@ -1,0 +1,32 @@
+<h4>Details about {{pet.name}}</h4>
+<div class="container-fluid">
+	<div class="row">
+		<div class="details col-sm-4">Pet Type:</div>
+		<div class="details col-sm-8">{{pet.type}}</div>
+	</div>
+	<div class="row">
+		<div class=" col-sm-4">Description:</div>
+		<div class="details col-sm-8">{{pet.description}}</div>
+	</div>
+	<div class="row">
+		<div class=" col-sm-4">Skills:</div>
+		<div class="details col-sm-8">
+			<div *ngFor='let skill of pet.skills'>
+				<p class="details">{{skill.skill}}</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4">Likes:</div>
+		<div class="details col-sm-8">{{pet.likes}}</div>
+	</div>
+	<div class="row">
+		<div  class=" col-sm-4"><form (submit)='likePet()'>
+			<input *ngIf='like' type="submit" name="submit" value="Like this pet!">
+			<input *ngIf='!like' type="submit" name="submit" value="Like this pet!" disabled="true">
+		</form></div>
+		<div class="details col-sm-4"><form (submit)='adopt()'>
+			<input type="submit" name="submit" value="Adopt this pet!">
+		</form></div>
+	</div>
+</div>

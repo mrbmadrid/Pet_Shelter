@@ -1,0 +1,51 @@
+<h4>Edit this pet</h4>
+<div *ngFor='let error of errors'>
+	<p class="purple">{{error}}</p>
+</div>
+<form (submit)='editPet()'>
+	<div class="top">
+		<label>Pet name:<br>
+			<input type="text" name="pet.name" [(ngModel)]="pet.name" minlength="3">
+		</label>
+		<br>
+		<label>Pet type:<br>
+			<input type="text" name="pet.type" [(ngModel)]="pet.type" minlength="3">
+		</label>
+		<br>
+		<label>Description:<br>
+			<input type="text" name="pet.description" [(ngModel)]="pet.description" minlength="3">
+		</label>
+	</div>
+	<br>
+	<div class="container-fluide">
+		<div class="row">
+			<div class="col-sm-12">
+				<div *ngIf="success">
+					<label>Skill 1:
+					<input type="text" name="pet.skills[0].skill" [(ngModel)]="pet.skills[0].skill">
+				</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div *ngIf="success">
+					<label>Skill 2:
+					<input type="text" name="pet.skills[1].skill" [(ngModel)]="pet.skills[1].skill">
+				</label>
+				</div>	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div *ngIf="success">
+					<label>Skill 2:
+					<input type="text" name="pet.skills[2].skill" [(ngModel)]="pet.skills[2].skill">
+				</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="submit" value="Edit Pet">
+	<a href="/pets-app" [routerLink]="['/pets-app']"><button>Cancel</button></a>
+</form>
